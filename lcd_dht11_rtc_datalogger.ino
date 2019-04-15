@@ -8,7 +8,7 @@
 
 #define DHTPIN 2     // dht11 sensörü hangi pine bağlı
 
-// uncomment whatever type you're using
+
 #define DHTTYPE DHT11   // kullandıgımız dht sensörürnün tipi
 
 #define I2C_ADDR 0x27
@@ -27,7 +27,6 @@ float temp; //Stores temperature value
 
 
 
-// initialize DHT sensor for normal 16mhz Arduino
 DHT dht(DHTPIN, DHTTYPE);
 
 
@@ -119,8 +118,8 @@ void loggingTemperature() {
   
   // Sıcaklık celcius cinsinden okunuyor
   float t = dht.readTemperature();
-  // Read temperature as Fahrenheit
-  //float f = dht.readTemperature(true);
+  
+  
   
   // dht sensöründe herhangi bir arıza var mı kontrol ediyoruz
   if  (isnan(t) /*|| isnan(f)*/) {
@@ -128,12 +127,11 @@ void loggingTemperature() {
     return;
   }
   
-  //debugging purposes
+  
   Serial.print("Sıcaklık: "); 
   Serial.print(t);
   Serial.println(" *C");
-  //Serial.print(f);
-  //Serial.println(" *F\t"); 
+ 
   
   myFile = SD.open("DATA.txt", FILE_WRITE);
   if (myFile) {
@@ -168,7 +166,7 @@ void loop() {
   lcd.print(hum);
   lcd.print(" %");
 
-  delay(2000); //Delay 2 sec.
+  delay(2000); 
   loggingTime();
   loggingTemperature();
   delay(5000);
