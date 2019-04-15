@@ -62,7 +62,7 @@ void setup() {
       Serial.println("RTC Modülü çalışmıyor!");
     }
     
-  // setup for the SD card
+  
   Serial.print("Sd kart yükleniyor...");
 
   if(!SD.begin(chipSelect)) {
@@ -71,10 +71,10 @@ void setup() {
   }
   Serial.println("Yükleme tamamlandı.");
     
-  //open file
+  
   myFile=SD.open("DATA.txt", FILE_WRITE);
 
-  // if the file opened ok, write to it:
+  
   if (myFile) {
     Serial.println("Dosya açıldı");
     // ölçtüğümüz verileri yazdırıyoruz
@@ -122,7 +122,7 @@ void loggingTemperature() {
   
   
   // dht sensöründe herhangi bir arıza var mı kontrol ediyoruz
-  if  (isnan(t) /*|| isnan(f)*/) {
+  if  (isnan(t) ) {
     Serial.println("DHT sensöründen veri okunamadı!");
     return;
   }
