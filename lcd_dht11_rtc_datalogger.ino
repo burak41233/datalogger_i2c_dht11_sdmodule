@@ -4,7 +4,7 @@
 #include <RTClib.h> // RTC kütüphanesi
 #include <Wire.h> 
 #include <LCD.h>
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal_I2C.h>//i2c kütüphanesi
 
 #define DHTPIN 2     // dht11 sensörü hangi pine bağlı
 
