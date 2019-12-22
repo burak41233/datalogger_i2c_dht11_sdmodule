@@ -67,8 +67,8 @@ void setup() {
 
   if(!SD.begin(chipSelect)) {
     Serial.println("Yükleme Başarısız!");
-    return;
-  }
+    return;  }
+  
   Serial.println("Yükleme tamamlandı.");
     
   
